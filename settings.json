@@ -75,7 +75,7 @@
     },
     "notebook.formatOnCellExecution": true,
     "notebook.formatOnSave.enabled": true,
-    // "notebook.lineNumbers": "on",
+    "notebook.lineNumbers": "on",
     "python.experiments.optInto": [
         "pythonTerminalEnvVarActivation"
     ],
