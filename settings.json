@@ -75,9 +75,7 @@
     },
     "notebook.formatOnCellExecution": true,
     "notebook.formatOnSave.enabled": true,
-    "notebook.lineNumbers": "on",
-    "python.condaPath": "/Users/ricardoquintero/anaconda3/bin/conda",
-    "python.defaultInterpreterPath": "/Users/ricardoquintero/anaconda3/envs/GA1",
+    // "notebook.lineNumbers": "on",
     "python.experiments.optInto": [
         "pythonTerminalEnvVarActivation"
     ],
@@ -141,6 +139,8 @@
         "asvetliakov.vscode-neovim": 1
     },
     "interactiveWindow.executeWithShiftEnter": true,
-    "window.newWindowProfile": "Python & SQL",
-    "cmake.showOptionsMovedNotification": false,
+    "errorLens.statusBarIconsEnabled": true,
+    "editor.suggest.showStatusBar": true,
+    "workbench.activityBar.location": "hidden",
+    "cSpell.language": "en,es-ES",
 }
