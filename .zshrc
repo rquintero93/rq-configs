@@ -100,6 +100,7 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias syncrc = 'cd ~/config-repo && git add . && git commit -m "update .zshrc" && git push'
 alias ndir='cd ~/.config/nvim/'
 alias nvimrc='nvim ~/.config/nvim/init.lua'
 alias ga='cd ~/Documents/Global\ Alumni/'
