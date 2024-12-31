@@ -10,6 +10,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+source /path/to/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 plugins=(git,pip,python,docker,ssh,svn,colored-man-pages,brewc,colorize,themes)
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -116,3 +118,4 @@ if [ -f '/Users/ricardoquintero/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ricardoquintero/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ricardoquintero/google-cloud-sdk/completion.zsh.inc'; fi
 
+eval "$(starship init zsh)"

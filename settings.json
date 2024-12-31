@@ -141,6 +141,6 @@
     "interactiveWindow.executeWithShiftEnter": true,
     "errorLens.statusBarIconsEnabled": true,
     "editor.suggest.showStatusBar": true,
-    "workbench.activityBar.location": "hidden",
     "cSpell.language": "en,es-ES",
+    "workbench.activityBar.location": "hidden",
 }
