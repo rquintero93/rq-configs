@@ -12,7 +12,6 @@ ZSH_THEME="robbyrussell"
 
 autoload -Uz compinit && compinit
 
-plugins=(colored-man-pages,colorize,themes)
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -73,7 +72,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-interactive-cd hacker-quotes zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
+plugins=(colored-man-pages colorize themes zsh-interactive-cd hacker-quotes zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
@@ -100,7 +99,7 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias syncrc='cd ~/config-repo && git add . && git commit -m "update conf files" && git push'
 alias ndir='cd ~/.config/nvim/'
@@ -120,7 +119,6 @@ if [ -f '/Users/ricardoquintero/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 if [ -f '/Users/ricardoquintero/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ricardoquintero/google-cloud-sdk/completion.zsh.inc'; fi
 
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/.oh-my-zsh/custom/plugins/zsh-colored-man-pages/colored-man-pages.plugin.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-plugin-fd/zsh-plugin-fd.plugin.zsh
 source ~/.oh-my-zsh/custom/plugins/vsc-plugin/vsc.plugin.zsh
 source ~/.oh-my-zsh/custom/plugins/zinsults/zinsults.plugin.zsh
