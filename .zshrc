@@ -12,7 +12,7 @@ ZSH_THEME="robbyrussell"
 
 autoload -Uz compinit && compinit
 
-plugins=(pip,python,colored-man-pages,colorize,themes)
+plugins=(colored-man-pages,colorize,themes)
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -111,6 +111,7 @@ export PATH="/usr/local/sbin:$PATH"
 alias db-soa-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-soa san-postgre-2-instance-1-eu-west-1c.cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
 alias db-sx-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-santander-x campus-santander-x-instance-1-eu-west-1a.cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
 alias db-santander-ucpe-tunneler='source ~/scripts/ssm-db-tunneler.sh old_ga eu-west-1 Campus_Santander_UCPE localhost 5432 5432'
+alias switch-nvim="/usr/local/bin/switch_nvim_config.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ricardoquintero/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ricardoquintero/google-cloud-sdk/path.zsh.inc'; fi
