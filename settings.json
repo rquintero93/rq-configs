@@ -108,7 +108,7 @@
         "info",
         "error"
     ],
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "FiraCode Nerd Font Mono",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
     "editor.fontWeight": "normal",
@@ -142,5 +142,7 @@
     "errorLens.statusBarIconsEnabled": true,
     "editor.suggest.showStatusBar": true,
     "cSpell.language": "en,es-ES",
+    "terminal.integrated.fontFamily": "monospace",
+    "git.autofetch": true,
     "workbench.activityBar.location": "hidden",
 }
