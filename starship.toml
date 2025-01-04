@@ -70,12 +70,14 @@ format = "[ $path ]($style)"
 truncation_length = 6
 truncation_symbol = "…/"
 
-# [directory.substitutions]
-# "Documents" = "󰈙 "
-# "Downloads" = " "
-# "Music" = "󰝚 "
-# "Pictures" = " "
-# "Developer" = "󰲋 "
+[directory.substitutions]
+"Documents" = "󰈙 "
+"~" = " "
+"Downloads" = " "
+"Global Alumni" = "󰬎󰬈 "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
 
 [git_branch]
 symbol = ""
@@ -153,7 +155,7 @@ disabled = false
 disabled = false
 success_symbol = '[](bold fg:color_green)'
 error_symbol = '[](bold fg:color_green)'
-vimcmd_symbol = '[N](bold fg:color_green)'
+vimcmd_symbol = '[](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[R](bold fg:color_purple)'
 vimcmd_replace_symbol = '[R](bold fg:color_purple)'
 vimcmd_visual_symbol = '[V](bold fg:color_yellow)'
