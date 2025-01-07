@@ -75,7 +75,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 plugins=(colored-man-pages colorize themes zsh-interactive-cd zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -157,3 +157,5 @@ cyan="#2CF9ED"
 export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
 export PATH=~/anaconda3/bin:$PATH
+
+. "$HOME/.local/bin/env"
