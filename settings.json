@@ -146,4 +146,6 @@
     "terminal.integrated.fontFamily": "monospace",
     "git.autofetch": true,
     "workbench.activityBar.location": "hidden",
+    "vscode-neovim.neovimClean": true,
+    "python.defaultInterpreterPath": "/Users/ricardoquintero/Documents/Global Alumni/.venv",
 }
