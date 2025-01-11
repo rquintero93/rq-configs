@@ -1,7 +1,6 @@
 # location ~/.ipython/profile_default/startup
 from IPython.core.magic import register_line_magic
-
-# import visidata
+import visidata
 
 
 @register_line_magic
