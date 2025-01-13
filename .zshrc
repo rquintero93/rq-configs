@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls='eza'
 alias syncrc='cd ~/config-repo && git add . && git commit -m "update conf files" && git push'
 alias ndir='cd ~/.config/nvim/'
 alias nvimrc='nvim ~/.config/nvim/init.lua'
@@ -126,7 +127,7 @@ source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
 source /usr/local/share/zsh-autopair/autopair.zsh
 
 eval "$(starship init zsh)"
-
+eval "$(thefuck --alias)"
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 #
