@@ -390,6 +390,7 @@ dependencies = [
 	"sqltrie",
 	"srsly",
 	"stack_data",
+	"statsmodels>=0.14.4",
 	"streamlit",
 	"stylecloud",
 	"sympy",
