@@ -2,7 +2,7 @@
     "Prettier-SQL.keywordCase": "upper",
     "[sql-bigquery]": {
     
-        "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
+        "editor.defaultFormatter": "dorzey.vscode-sqlfluff"
     },
     "better-comments.tags": [
         {
@@ -148,4 +148,20 @@
     "workbench.activityBar.location": "hidden",
     "vscode-neovim.neovimClean": true,
     "python.defaultInterpreterPath": "/Users/ricardoquintero/Documents/Global Alumni/.venv",
+    "sqlfluff.dialect": "bigquery",
+    "sqlfluff.linter.diagnosticSeverity": "warning",
+    "sqlfluff.linter.languages": [
+
+        "sql",
+        "sql-bigquery",
+        "jinja-sql",
+        "postgres",
+        "snowflake-sql"
+    ],
+    "sqlfluff.rules": [
+        "all"
+    ],
+    "sqlfluff.excludeRules": [
+    "RF01",
+    ],
 }
