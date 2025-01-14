@@ -101,7 +101,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls='eza'
+alias ls='eza --icons --group-directories-first'
+alias cat='bat'
 alias syncrc='cd ~/config-repo && git add . && git commit -m "update conf files" && git push'
 alias ndir='cd ~/.config/nvim/'
 alias nvimrc='nvim ~/.config/nvim/init.lua'
