@@ -108,6 +108,7 @@ alias syncrc='cd ~/config-repo && git add . && git commit -m "update conf files"
 alias ndir='cd ~/.config/nvim/'
 alias nvimrc='nvim ~/.config/nvim/init.lua'
 alias ga='cd ~/Documents/Global\ Alumni/ && source .venv/bin/activate'
+alias nerd='cd ~/Documents/DeSciWorld/nerdBot/ && source .venv/bin/activate'
 alias airbyte='ssh -L 8000:localhost:8000 airbyte'
 export PATH="/usr/local/sbin:$PATH"
 alias db-soa-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-soa san-postgre-2-instance-1-eu-west-1c.cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
