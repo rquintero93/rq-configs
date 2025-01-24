@@ -101,12 +101,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias sysupdate="brew update && brew upgrade && brew cleanup && omz update"
 alias ls='eza --icons --group-directories-first'
 alias cat='bat'
 alias cd='z'
 alias syncrc='cd ~/config-repo && git add . && git commit -m "update conf files" && git push'
 alias ndir='cd ~/.config/nvim/'
-alias nvimrc='nvim ~/.config/nvim/init.lua'
 alias ga='cd ~/Documents/Global\ Alumni/ && source .venv/bin/activate'
 alias nerd='cd ~/Documents/DeSciWorld/nerdBot/ && source .venv/bin/activate'
 alias airbyte='ssh -L 8000:localhost:8000 airbyte'
