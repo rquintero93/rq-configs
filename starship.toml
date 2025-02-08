@@ -10,7 +10,6 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:color_blue bg:color_aqua)\
-$time\
 [ ](fg:color_aqua)\
 $line_break$character"""
 
