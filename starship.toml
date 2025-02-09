@@ -4,12 +4,12 @@ format = """
 [](color_blue)\
 $os\
 $username\
-[](bg:color_aqua fg:color_blue)\
+[](bg:color_aqua fg:color_blue)\
 $directory\
-[](fg:color_aqua bg:color_blue)\
+[](fg:color_aqua bg:color_blue)\
 $git_branch\
 $git_status\
-[](fg:color_blue bg:color_aqua)\
+[](fg:color_blue bg:color_aqua)\
 [ ](fg:color_aqua)\
 $line_break$character"""
 
@@ -29,7 +29,7 @@ color_yellow = '#d79921'
 
 [os]
 disabled = false
-style = "bg:color_blue fg:color_fg0"
+style = "bg:color_blue bold fg:#0c0c0c"
 
 [os.symbols]
 Windows = "󰍲"
@@ -56,8 +56,8 @@ Pop = ""
 
 [username]
 show_always = true
-style_user = "bg:color_blue fg:color_fg0"
-style_root = "bg:color_blue fg:color_fg0"
+style_user = "bg:color_blue bold fg:#0c0c0c"
+style_root = "bg:color_blue bold fg:#0c0c0c"
 format = '[ $user ]($style)'
 
 [directory]
@@ -78,11 +78,11 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:color_blue"
-format = '[[ $symbol $branch ](fg:color_fg0 bg:color_blue)]($style)'
+format = '[[ $symbol $branch ](fg:#0c0c0c bg:color_blue)]($style)'
 
 [git_status]
 style = "bg:color_blue"
-format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_blue)]($style)'
+format = '[[($all_status$ahead_behind )](fg:#0c0c0c bg:color_blue)]($style)'
 
 # [nodejs]
 # symbol = ""
