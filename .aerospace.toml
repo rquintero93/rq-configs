@@ -60,7 +60,7 @@ inner.horizontal = 0
 inner.vertical = 0
 outer.left = 0
 outer.bottom = 0
-outer.top = 0
+outer.top = [{ monitor.'built-in' = 8 }, 40]
 outer.right = 0
 
 # 'main' binding mode declaration
@@ -177,3 +177,26 @@ run = 'layout floating'
 1 = 'built-in'
 3 = '^BK550Y$'
 4 = 'Z1'
+
+# Notify Sketchybar about workspace change
+# exec-on-workspace-change = [
+# 	'/bin/bash',
+# 	'-c',
+# 	'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+# ]
+#
+# on-focus-changed = [
+# 	'exec-and-forget sketchybar --trigger aerospace_focus_change',
+# ]
+
+exec-on-workspace-change = [
+	'/bin/bash',
+	'-c',
+	'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | tr -d "[:space:]")',
+]
+
+on-focus-changed = [
+	'/bin/bash',
+	'-c',
+	'sketchybar --trigger aerospace_focus_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | tr -d "[:space:]")',
+]
