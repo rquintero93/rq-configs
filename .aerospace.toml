@@ -9,8 +9,33 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+	# JankyBorders has a built-in detection of already running process,
+	# so it won't be run twice on AeroSpace restart
+	'exec-and-forget /opt/homebrew/opt/sketchybar/bin/sketchybar',
+	# 'exec-and-forget /opt/homebrew/opt/borders/bin/borders active_color="glow(0xd943ff64)" inactive_color=0x20494d64 width=8.0'
+]
 
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = [
+	'/bin/bash',
+	'-c',
+	'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE FOCUSED_DISPLAY=$(aerospace list-monitors --focused | awk "{print $1}")',
+]
+
+# on-focus-changed = [
+# 	'exec-and-forget sketchybar --trigger aerospace_focus_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+# 	"move-mouse window-lazy-center",
+# ]
+
+on-focus-changed = [
+	# '/bin/bash',
+	# '-c',
+	# 'echo "Focus changed to workspace $AEROSPACE_FOCUSED_WORKSPACE" >> /tmp/aerospace_debug.log',
+	'exec-and-forget /bin/bash -c "export FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused) && sketchybar --trigger aerospace_focus_change FOCUSED_WORKSPACE=$FOCUSED_WORKSPACE"',
+	# 'exec-and-forget env >> /tmp/aerospace_env.log',
+	# 'exec-and-forget echo "Focus changed to workspace $AEROSPACE_FOCUSED_WORKSPACE" >> /tmp/aerospace_debug.log',
+]
 # Start AeroSpace at login
 start-at-login = true
 
@@ -37,7 +62,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = "move-mouse window-lazy-center"
+# on-focus-changed = "move-mouse window-lazy-center"
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
@@ -46,6 +71,8 @@ automatically-unhide-macos-hidden-apps = true
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
+# # Notify Sketchybar about focuse change
+# # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 preset = 'qwerty'
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
@@ -56,12 +83,12 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 0
-inner.vertical = 0
-outer.left = 0
-outer.bottom = 0
+inner.horizontal = 6
+inner.vertical = 6
+outer.left = 3
+outer.bottom = 3
 outer.top = [{ monitor.'built-in' = 8 }, 40]
-outer.right = 0
+outer.right = 3
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -159,15 +186,24 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 
-# [[on-window-detected]]
-# if.app-id = 'com.mitchellh.ghostty'
-# run = 'move-node-to-workspace T'
-# [[on-window-detected]]
-# if.app-id = ' com.microsoft.Outlook'
-# run = 'move-node-to-workspace C'
-# [[on-window-detected]]
-# if.app-id = 'com.microsoft.teams2'
-# run = 'move-node-to-workspace C'
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+if.app-id = ' com.microsoft.Outlook'
+run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = 'move-node-to-workspace 4'
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = 'move-node-to-workspace 4'
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run = 'layout floating'
@@ -178,25 +214,19 @@ run = 'layout floating'
 3 = '^BK550Y$'
 4 = 'Z1'
 
-# Notify Sketchybar about workspace change
-# exec-on-workspace-change = [
-# 	'/bin/bash',
-# 	'-c',
-# 	'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
-# ]
 #
 # on-focus-changed = [
 # 	'exec-and-forget sketchybar --trigger aerospace_focus_change',
 # ]
 
-exec-on-workspace-change = [
-	'/bin/bash',
-	'-c',
-	'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | tr -d "[:space:]")',
-]
-
-on-focus-changed = [
-	'/bin/bash',
-	'-c',
-	'sketchybar --trigger aerospace_focus_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | tr -d "[:space:]")',
-]
+# exec-on-workspace-change = [
+# 	'/bin/bash',
+# 	'-c',
+# 	'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | tr -d "[:space:]")',
+# ]
+#
+# on-focus-changed = [
+# 	'/bin/bash',
+# 	'-c',
+# 	'sketchybar --trigger aerospace_focus_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | tr -d "[:space:]")',
+# ]
