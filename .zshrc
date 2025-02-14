@@ -100,6 +100,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
+alias zshsource="source ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sysupdate="brew update && brew upgrade && brew cleanup && omz update"
 alias ls='eza --icons --group-directories-first'
