@@ -190,6 +190,9 @@ shift-down = ['volume set 0', 'mode main']
 if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 2'
 [[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = 'move-node-to-workspace 1'
+[[on-window-detected]]
 if.app-id = ' com.microsoft.Outlook'
 run = 'move-node-to-workspace 4'
 [[on-window-detected]]
@@ -228,5 +231,3 @@ run = 'layout floating'
 # on-focus-changed = [
 # 	'/bin/bash',
 # 	'-c',
-# 	'sketchybar --trigger aerospace_focus_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused | tr -d "[:space:]")',
-# ]
