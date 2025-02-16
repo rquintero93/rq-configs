@@ -109,6 +109,7 @@ alias cd='z'
 alias syncrc='cd ~/config-repo && git add . && git commit -m "update conf files" && git push'
 alias ndir='cd ~/.config/nvim/'
 alias ga='cd ~/Documents/Global\ Alumni/ && source .venv/bin/activate'
+alias gatmux='tmuxifier s ga'
 alias nerd='cd ~/Documents/DeSciWorld/nerdBot/ && source .venv/bin/activate'
 alias airbyte='ssh -L 8000:localhost:8000 airbyte'
 export PATH="/usr/local/sbin:$PATH"
@@ -117,6 +118,7 @@ alias db-soa-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 c
 alias db-sx-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-santander-x campus-santander-x-instance-1-eu-west-1a.cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
 alias db-santander-ucpe-tunneler='source ~/scripts/ssm-db-tunneler.sh old_ga eu-west-1 Campus_Santander_UCPE localhost 5432 5432'
 alias switch-nvim="/usr/local/bin/switch_nvim_config.sh"
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 function jupyconv() { jupytext --to py:percent "$1"; }
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ricardoquintero/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ricardoquintero/google-cloud-sdk/path.zsh.inc'; fi
@@ -134,6 +136,7 @@ source /usr/local/share/zsh-autopair/autopair.zsh
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
+eval "$(tmuxifier init -)"
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 #
