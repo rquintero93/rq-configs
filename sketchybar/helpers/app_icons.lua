@@ -1,9 +1,11 @@
 return {
 	["Typora"] = ":text:",
+	["Boop"] = ":text:",
 	["Orion"] = ":orion:",
 	["Orion RC"] = ":orion:",
 	["Grammarly Editor"] = ":grammarly:",
 	["kitty"] = ":kitty:",
+	["Ghostty"] = ":terminal:",
 	["ClickUp"] = ":click_up:",
 	["Iris"] = ":iris:",
 	["PomoDone App"] = ":pomodone:",
@@ -214,4 +216,3 @@ return {
 	["ChatGPT"] = ":openai:",
 	["default"] = ":default:",
 }
-
