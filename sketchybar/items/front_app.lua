@@ -1,28 +1,32 @@
 local colors = require("colors")
 local settings = require("settings")
+local app_icons = require("helpers.app_icons")
 
 local front_app = sbar.add("item", "front_app", {
-	display = "active",
 	icon = {
-		drawing = false,
+		font = {
+			family = settings.font.numbers,
+		},
 	},
 	label = {
-
-		color = colors.black,
 		font = {
-			style = settings.font.style_map["Bold"],
-			size = 13.0,
+			font = settings.icons,
 		},
 	},
 	updates = true,
 })
 
 front_app:subscribe("front_app_switched", function(env)
-	front_app:set({
-		label = {
-			string = env.INFO,
-		},
-	})
+	local icon_line = ""
+	local lookup = app_icons[env.INFO]
+	local icon = ((lookup == nil) and app_icons["default"] or lookup)
+
+	icon_line = icon_line .. " " .. icon
+	sbar.animate("tanh", 10, function()
+		front_app:set({
+			label = icon,
+		})
+	end)
 end)
 
 front_app:subscribe("mouse.clicked", function(env)

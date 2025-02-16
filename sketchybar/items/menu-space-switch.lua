@@ -4,7 +4,7 @@ local icons = require("icons")
 -- Handles the small icon indicator for spaces / menus changes
 local spaces_indicator = sbar.add("item", {
 	padding_left = -3,
-	padding_right = 0,
+	padding_right = 5,
 	icon = {
 		padding_left = 8,
 		padding_right = 9,

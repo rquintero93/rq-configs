@@ -1,6 +1,6 @@
 require("items.aerospace")
 require("items.apple")
--- require("items.menu-space-switch")
+require("items.menu-space-switch")
 require("items.menus")
 require("items.spaces")
 -- require("items.front_app")
