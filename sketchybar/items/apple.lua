@@ -63,3 +63,7 @@ apple_activity:subscribe("mouse.clicked", function(_)
 	sbar.exec("open -a 'Activity Monitor'")
 	apple_logo:set({ popup = { drawing = false } })
 end)
+
+apple_logo:subscribe("mouse.exited.global", function()
+	apple_logo:set({ popup = { drawing = false } })
+end)

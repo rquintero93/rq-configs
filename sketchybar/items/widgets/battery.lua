@@ -97,3 +97,7 @@ sbar.add("item", "widgets.battery.padding", {
 	position = "right",
 	width = settings.group_paddings,
 })
+
+battery:subscribe("mouse.exited.global", function()
+	battery:set({ popup = { drawing = false } })
+end)

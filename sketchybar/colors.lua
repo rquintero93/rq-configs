@@ -6,7 +6,7 @@ return {
 	blue = 0xff76cce0,
 	yellow = 0xffe7c664,
 	orange = 0xfff39660,
-	magenta = 0xffb39df3,
+	magenta = 0xffcba6f7,
 	grey = 0xff7f8490,
 	transparent = 0x00000000,
 
