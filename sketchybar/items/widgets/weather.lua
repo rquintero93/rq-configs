@@ -2,7 +2,7 @@ local weather_vars = require("items.widgets.weather_vars")
 local colors = require("colors")
 local settings = require("settings")
 
-local popup_width = 160
+local popup_width = 200
 
 local weather_icons_day = {
 	[1000] = "", -- Sunny/113
@@ -229,7 +229,7 @@ local function toggle_weather()
 				label = {
 					font = { family = "JetBrainsMono Nerd Font", style = "Bold", size = 12 },
 					string = string.format(
-						"%s: 􀄨%s°C 􀄩%s°C",
+						"%s: Max %s°C Min %s°C",
 						display_date,
 						math.floor(day_item.day.maxtemp_c),
 						math.floor(day_item.day.mintemp_c)
