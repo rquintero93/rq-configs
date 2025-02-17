@@ -75,6 +75,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 plugins=(colored-man-pages colorize themes zsh-interactive-cd zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+source "${0:A:h}/.env"
 # source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # User configuration
 
