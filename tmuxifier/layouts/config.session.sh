@@ -9,8 +9,12 @@ if initialize_session "config"; then
   # Load a defined window layout.
   load_window "nvim"
 
+  new_window "shell"
+
   load_window "services"
   # Select the default active window on session creation.
+
+
   select_window 1
 
 fi
