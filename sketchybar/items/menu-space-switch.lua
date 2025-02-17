@@ -15,7 +15,7 @@ local spaces_indicator = sbar.add("item", {
 		width = 0,
 		padding_left = 0,
 		padding_right = 8,
-		string = "Spaces",
+		-- string = "Spaces",
 		color = colors.bg1,
 	},
 	background = {
@@ -45,10 +45,10 @@ spaces_indicator:subscribe("mouse.entered", function(env)
 			icon = {
 				color = colors.white,
 			},
-			label = {
-				width = "dynamic",
-				color = colors.white,
-			},
+			-- label = {
+			-- 	width = "dynamic",
+			-- 	color = colors.white,
+			-- },
 		})
 	end)
 end)
