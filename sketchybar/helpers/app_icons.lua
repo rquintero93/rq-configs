@@ -1,5 +1,6 @@
 return {
 	["Typora"] = ":text:",
+	["SideNotes"] = "",
 	["Boop"] = ":text:",
 	["Orion"] = ":orion:",
 	["Orion RC"] = ":orion:",
