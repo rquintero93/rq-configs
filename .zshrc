@@ -132,8 +132,6 @@ if [ -f '/Users/ricardoquintero/google-cloud-sdk/completion.zsh.inc' ]; then . '
 
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-plugin-fd/zsh-plugin-fd.plugin.zsh
-source ~/.oh-my-zsh/custom/plugins/vsc-plugin/vsc.plugin.zsh
-source ~/.oh-my-zsh/custom/plugins/zinsults/zinsults.plugin.zsh
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autopair/autopair.zsh
 
