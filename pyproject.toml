@@ -338,6 +338,7 @@ dependencies = [
 	"pyproj",
 	"pysocks",
 	"pyspark",
+	"pytest-mock>=3.14.0",
 	"python-dateutil",
 	"python-dotenv",
 	"python-gssapi",
