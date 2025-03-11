@@ -16,7 +16,7 @@ split_h 50
 
 # Paste text
 send_keys "brew services list" 1    # paste into active pane
-send_keys "brew services stop sketchybar" 2   # paste into active pane
+send_keys "brew services restart sketchybar" 2   # paste into active pane
 send_keys "sketchybar" 3   # paste into active pane
 #send_keys "date" 1 # paste into pane 1
 
