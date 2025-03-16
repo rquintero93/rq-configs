@@ -173,6 +173,7 @@ dependencies = [
 	"icu",
 	"idna",
 	"imageio",
+	"imblearn>=0.0",
 	"importlib_metadata",
 	"importlib_resources",
 	"ipykernel",
