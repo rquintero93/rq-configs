@@ -292,7 +292,7 @@ dependencies = [
 	"platformdirs",
 	"plotly",
 	"ply",
-	"polars",
+	"polars-lts-cpu>=1.25.2",
 	"preshed",
 	"proj",
 	"prometheus_client",
@@ -476,5 +476,5 @@ large_file_skip_byte_limit = 0
 indented_joins = false
 indent_using_on = true
 template_blocks_indent = false
-indent_unit = "tab"
+indent_unit = "space"
 tab_space_size = 4
