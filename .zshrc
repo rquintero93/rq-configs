@@ -49,7 +49,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -124,6 +124,8 @@ alias db-sx-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 ca
 alias db-santander-ucpe-tunneler='source ~/scripts/ssm-db-tunneler.sh old_ga eu-west-1 Campus_Santander_UCPE localhost 5432 5432'
 alias switch-nvim="/usr/local/bin/switch_nvim_config.sh"
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 function jupyconv() { jupytext --to py:percent "$1"; }
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ricardoquintero/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ricardoquintero/google-cloud-sdk/path.zsh.inc'; fi
