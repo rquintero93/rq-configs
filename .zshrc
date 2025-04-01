@@ -100,6 +100,7 @@ source "$HOME/config-repo/.env"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+export PATH="/usr/local/opt/:$PATH"
 alias zshconfig="nvim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -171,7 +172,7 @@ blue="#06BCE4"
 cyan="#2CF9ED"
 export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
-export PATH=~/anaconda3/bin:$PATH
+# export PATH=~/anaconda3/bin:$PATH
 # yazi functionality 
 function e() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
