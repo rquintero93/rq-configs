@@ -100,6 +100,8 @@ source "$HOME/config-repo/.env"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+#justin case
+# export VIRTUAL_ENV="$HOME/Documents/Global Alumni/.venv:$PATH"
 export PATH="/usr/local/opt/:$PATH"
 alias zshconfig="nvim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
