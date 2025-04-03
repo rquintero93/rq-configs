@@ -18,4 +18,7 @@ uv venv
 # Step 6: Activate virtual environment (POSIX-compatible)
 source .venv/bin/activate
 
-echo "✔️ uv project initialized with custom pyproject.toml and venv activated"
+# Step 7: Install dev dependencies
+uv pip install -r pyproject.toml --extra dev
+
+echo "✔️ uv project initialized with custom pyproject.toml, venv activated and dev dependencies installed."
