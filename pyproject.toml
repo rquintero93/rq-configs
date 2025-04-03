@@ -3,7 +3,7 @@ name = "template"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12.4"
 dependencies = [
     "ipython>=9.0.2",
     "neovim>=0.3.1",
@@ -27,4 +27,3 @@ indent_using_on = true
 template_blocks_indent = false
 indent_unit = "space"
 tab_space_size = 4
-

@@ -107,6 +107,7 @@ alias zshconfig="nvim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sysupdate="brew update && brew upgrade && brew cleanup && omz update"
+alias pyinit='bash ~/config-repo/pyinit.sh'
 alias ls='eza --icons --group-directories-first'
 alias cat='bat'
 alias cd='z'
