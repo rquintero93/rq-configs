@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
   "ipython>=9.0.2",
   "neovim>=0.3.1",
