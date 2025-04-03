@@ -3,14 +3,16 @@
 # Step 1: Initialize project
 uv init
 
-# Step 2: Remove default pyproject.toml
+# Step 2: Remove default pyproject.toml and .gitignore
 rm pyproject.toml
+rm .gitignore
 
 # Step 3: Remove default hello.py
 rm main.py
 
-# Step 4: Download your custom pyproject.toml
+# Step 4: Download your custom pyproject.toml and .gitignore
 curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/pyproject.toml -o pyproject.toml
+curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/gitignore_template -o .gitignore
 
 # Step 5: Create virtual environment
 uv venv
