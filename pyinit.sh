@@ -7,7 +7,7 @@ uv init
 rm pyproject.toml
 
 # Step 3: Remove default hello.py
-rm hello.py
+rm main.py
 
 # Step 4: Download your custom pyproject.toml
 curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/pyproject.toml -o pyproject.toml
