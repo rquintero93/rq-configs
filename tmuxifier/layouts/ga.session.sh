@@ -10,7 +10,7 @@ if initialize_session "ga"; then
   # new_window "nvim"
 
   # Load a defined window layout.
-  load_window "nvim_venv"
+  load_window "nvim"
   load_window "shell"
 
   # Select the default active window on session creation.
