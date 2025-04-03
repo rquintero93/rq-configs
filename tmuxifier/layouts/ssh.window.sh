@@ -4,15 +4,14 @@
 
 # Create new window. If no argument is given, window name will be based on
 # layout file name.
-new_window "nvim"
+new_window "ssh"
 
 # Split window into panes.
 #split_v 20
 #split_h 50
 
 # Run commands.
-run_cmd "source .venv/bin/activate"     # runs in active pane
-run_cmd "nvim"     # runs in active pane
+run_cmd "ssh datalake"     # runs in active pane
 #run_cmd "date" 1  # runs in pane 1
 
 # Paste text
