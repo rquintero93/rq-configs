@@ -15,6 +15,13 @@ dev = [
   "visidata>=3.1.1",
 ]
 
+[tool.basedpyright]
+typeCheckingMode = "standard"
+reportMissingImports = "error"
+reportMissingTypeStubs = "information"
+reportArgumentType = "information"
+reportCallIssue = "information"
+
 [tool.sqlfluff.core]
 dialect = "bigquery"
 rules = "all"
