@@ -2,7 +2,7 @@
 name = "template"
 version = "0.1.0"
 description = "Add your description here"
-authors = [{name="Ricardo Quintero", email="rquinterog93@gmail.com"},]
+authors = [{ name = "Ricardo Quintero", email = "rquinterog93@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.12"
 
@@ -17,11 +17,33 @@ dev = [
 ]
 
 [tool.basedpyright]
+ignore = ['*']
 typeCheckingMode = "standard"
 reportMissingImports = "error"
 reportMissingTypeStubs = "information"
 reportArgumentType = "information"
 reportCallIssue = "information"
+
+[tool.ruff]
+fix = true
+line-length = 88
+exclude = ["*/.venv"]
+[tool.ruff.lint]
+select = [
+    "B", # Errors and bad practices (from flake8-bugbear).
+    # "D", # Docstrings, to check their presence and format.
+    "E",   # Style errors, alignment, and code conventions.
+    "F",   # Code errors (equivalent to flake8, detects critical issues).
+    "I",   # Imports (reordering, duplicates, and conventions).
+    "Q",   # Improper SQL queries (if applicable to your project).
+    "S",   # Security (detects common vulnerabilities).
+    "NPY", # Numpy (detects common issues with numpy)
+    "PD",  # Pandas (detects common issues with pandas).
+    "W",   # Warnings
+    "RUF", # Ruff-only rules
+]
+
+ignore = ["S101", "PD901", "RUF013"]
 
 [tool.sqlfluff.core]
 dialect = "bigquery"
