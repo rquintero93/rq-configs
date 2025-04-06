@@ -10,9 +10,10 @@ rm .gitignore
 # Step 3: Remove default hello.py
 rm main.py
 
-# Step 4: Download your custom pyproject.toml and .gitignore
+# Step 4: Download your custom pyproject.toml .gitignore and .dockerignore
 curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/pyproject.toml -o pyproject.toml
 curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/gitignore_template -o .gitignore
+curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/dockerignore_template -o .dockerignore
 
 # Step 5: Create virtual environment
 uv venv
