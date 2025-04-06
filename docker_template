@@ -16,7 +16,7 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 
 # Install project dependencies (resolves and installs from pyproject.toml / uv.lock)
-RUN uv lock && uv sync
+RUN uv sync --no-dev
 
 # Copy the rest of the application code into the container
 COPY . .
