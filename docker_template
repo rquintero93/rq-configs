@@ -22,10 +22,8 @@ RUN uv sync --no-dev
 COPY . .
 
 # If uv created a virtual environment (.venv), activate it for runtime
-
-# hadolint ignore=DL3044
-ENV VIRTUAL_ENV=/app/.venv \
-    PATH="$$VIRTUAL_ENV/bin:$$PATH"
+ENV VIRTUAL_ENV=/app/.venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # Expose the port for streamlit
 #EXPOSE 8051
