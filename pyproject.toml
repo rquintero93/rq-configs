@@ -71,3 +71,5 @@ sqllint = "test -d sql && sqlfluff lint sql/ || echo 'No SQL to lint, skipping..
 sqlformat = "test -d sql && sqlfluff fix sql/ && sqlfluff format sql/ || echo 'No SQL to format, skipping...'"
 # Full project health check
 check = "task clean && task lint && task sqllint && task typecheck && task test"
+# Smart Docker build with dynamic image name based on project name
+dockerbuild = "docker build -t $(basename $(pwd) | tr '[:upper:]' '[:lower:]') ."
