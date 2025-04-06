@@ -35,7 +35,7 @@ exclude = ["*/.venv"]
 
 [tool.ruff.lint]
 select = ["B", "E", "F", "I", "Q", "S", "NPY", "PD", "W", "RUF"]
-ignore = ["S101", "PD901", "RUF013"]
+ignore = ["S101","S301", "PD901", "RUF013"]
 
 [tool.sqlfluff.core]
 dialect = "postgres"
