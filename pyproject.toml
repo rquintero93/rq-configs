@@ -61,6 +61,8 @@ typecheck = "basedpyright"
 clean = "rm -rf __pycache__ .pytest_cache .mypy_cache dist build *.egg-info"
 # Run Streamlit app with check for app file
 app = "test -f src/app.py && streamlit run src/app.py || echo 'No Streamlit app found, skipping...'"
+# Run main 
+run = "python3 src/main.py"
 # Python Lint only
 lint = "ruff check ."
 # Format & autofix everything Ruff can
