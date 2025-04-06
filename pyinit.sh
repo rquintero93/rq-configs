@@ -23,7 +23,12 @@ uv venv
 source .venv/bin/activate
 
 # Step 7: Install dev dependencies
-# uv pip install -r pyproject.toml --extra dev
 uv sync
 
-echo "✔️ uv project initialized with custom pyproject.toml, venv activated and dev dependencies installed."
+# Step 8: Create a new main.py file
+mkdir src && touch src/main.py
+
+# Step 9: Create a new tests directory
+mkdir tests
+
+echo "✔️ uv project initialized"
