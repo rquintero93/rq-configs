@@ -1,0 +1,32 @@
+# Start from the official Python 3.12 base image (slim variant for minimal footprint)
+FROM python:3.12-slim
+
+# Install pipx and use it to install uv (fast Python package manager by Astral)
+RUN pip install --no-cache-dir pipx && \
+    pipx install uv
+
+# Ensure pipx-installed binaries (like uv) are available on PATH
+ENV PATH="/root/.local/bin:$PATH"
+
+# Set working directory for the application
+WORKDIR /app
+
+# Copy dependency specification files
+# (Include uv.lock if you have a lockfile for reproducible installs)
+COPY pyproject.toml uv.lock ./
+
+# Install project dependencies (resolves and installs from pyproject.toml / uv.lock)
+RUN uv lock && uv sync
+
+# Copy the rest of the application code into the container
+COPY . .
+
+# If uv created a virtual environment (.venv), activate it for runtime
+ENV VIRTUAL_ENV=/app/.venv \
+    PATH="$VIRTUAL_ENV/bin:$PATH"
+
+# Expose the port for streamlit
+#EXPOSE 8051
+
+#default command to run the application
+CMD ["python", "src/main.py"]
