@@ -14,6 +14,7 @@ rm main.py
 curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/pyproject.toml -o pyproject.toml
 curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/gitignore_template -o .gitignore
 curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/dockerignore_template -o .dockerignore
+curl -sSL https://raw.githubusercontent.com/rquintero93/rq-configs/main/docker_template -o Dockerfile
 
 # Step 5: Create virtual environment
 uv venv
