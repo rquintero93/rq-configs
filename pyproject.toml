@@ -72,4 +72,4 @@ sqlformat = "test -d sql && sqlfluff fix sql/ && sqlfluff format sql/ || echo 'N
 # Full project health check
 check = "task clean && task lint && task sqllint && task typecheck && task test"
 # Smart Docker build with dynamic image name based on project name
-dockerbuild = "docker build -t $(basename $(pwd) | tr '[:upper:]' '[:lower:]') ."
+dockerbuild = "docker build -t $(basename \"$PWD\" | tr '[:upper:]' '[:lower:]') ."
