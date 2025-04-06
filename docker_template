@@ -23,7 +23,7 @@ COPY . .
 
 # If uv created a virtual environment (.venv), activate it for runtime
 ENV VIRTUAL_ENV=/app/.venv \
-    PATH="$VIRTUAL_ENV/bin:$PATH"
+    PATH="$$VIRTUAL_ENV/bin:$$PATH"
 
 # Expose the port for streamlit
 #EXPOSE 8051
