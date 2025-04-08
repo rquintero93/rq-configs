@@ -30,7 +30,7 @@ reportCallIssue = "information"
 
 [tool.ruff]
 fix = true
-line-length = 120
+line-length = 88
 exclude = ["*/.venv"]
 
 [tool.ruff.lint]
