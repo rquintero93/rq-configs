@@ -1,5 +1,8 @@
 [build-system]
-requires = ["setuptools>=65", "wheel"]  # Use setuptools as build backend (PEP 621)
+requires = [
+  "setuptools>=65",
+  "wheel",
+] # Use setuptools as build backend (PEP 621)
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -21,25 +24,24 @@ dev = [
   "visidata>=3.1.1",
   "taskipy>=1.12.2",
   "ruff>=0.4.0",
-  "pytest>=8.1.1",
   "basedpyright>=1.10.5",
+  "pytest>=8.1.1",
   "pytest-cov>=4.1.0",
   "pytest-asyncio>=0.21.0",
   "pytest-mock",
-  "coverage[toml]", 
-  "build",
+  "coverage[toml]",
   "pre-commit",
   "bandit",
   "hypothesis",
-  "mkdocs", 
-  "mkdocs-material", 
+  "mkdocs",
+  "mkdocs-material",
   "mkdocstrings[python]",
-  "mkdocs-git-revision-date-localized-plugin"
+  "mkdocs-git-revision-date-localized-plugin",
 ]
 
 [tool.setuptools]
-package-dir = {"" = "src"}        # Use src/ layout for package code
-license-files = ["LICENSE*"]      # Include license file(s) in builds
+package-dir = { "" = "src" } # Use src/ layout for package code
+license-files = ["LICENSE*"] # Include license file(s) in builds
 
 [tool.setuptools.package-data]
 "*" = ["py.typed"]
@@ -90,6 +92,7 @@ processes = -1
 exclude_rules = "RF01"
 max_line_length = 120
 large_file_skip_byte_limit = 0
+
 [tool.sqlfluff.indentation]
 indented_joins = false
 indent_using_on = true

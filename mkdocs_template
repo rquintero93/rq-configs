@@ -50,8 +50,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          setup_commands:
-            - import sys; sys.path.append("src")
+          paths: ["src"]
           options:
             show_root_toc_entry: true
             show_if_no_docstring: true
