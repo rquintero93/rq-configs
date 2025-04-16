@@ -106,6 +106,7 @@ export PATH="/usr/local/opt/:$PATH"
 alias zshconfig="nvim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias nerdssh="ssh -i ~/.ssh/pems/RicardoSSH.pem ubuntu@15.237.174.231"
 alias sysupdate="brew update && brew upgrade && brew cleanup && omz update"
 alias pyinit='bash ~/config-repo/pyinit.sh'
 alias rq='bash ~/config-repo/nv.sh'
