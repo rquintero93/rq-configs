@@ -70,6 +70,7 @@ ignore = ["S101", "S301", "PD901", "RUF013", "B018"]
 convention = "google"
 
 [tool.pytest.ini_options]
+pythonpath = ["src"]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-v --cov=src --cov-report=term-missing"
