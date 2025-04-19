@@ -192,12 +192,10 @@ source ~/fzf-git.sh/fzf-git.sh
 
 # --- setup fzf theme ---
 fg="#CBE0F0"
-bg="#011628"
-bg_highlight="#143652"
 purple="#B388FF"
 blue="#06BCE4"
 cyan="#2CF9ED"
-export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+export FZF_DEFAULT_OPTS="--color=fg:${fg},hl:${purple},fg+:${fg},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
 # export PATH=~/anaconda3/bin:$PATH
 # yazi functionality 
