@@ -11,9 +11,9 @@ new_window "nvim"
 #split_h 50
 
 # Run commands.
-run_cmd "deactivate"     # runs in active pane
-run_cmd "source .venv/bin/activate"     # runs in active pane
-run_cmd "nvim"     # runs in active pane
+# run_cmd "deactivate"     # runs in active pane
+# run_cmd "source .venv/bin/activate"     # runs in active pane
+run_cmd "test -d .venv && source .venv/bin/activate && nvim || nvim"     # runs in active pane
 #run_cmd "date" 1  # runs in pane 1
 
 # Paste text
