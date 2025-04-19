@@ -1,0 +1,3 @@
+[default_session]
+startup_command = "test -d .venv && source .venv/bin/activate && nvim || nvim"
+preview_command = "eza --all --git --icons --color=always {}"
