@@ -28,6 +28,7 @@ local cal = sbar.add("item", {
 		color = colors.bg1,
 		border_color = colors.black,
 		border_width = 1,
+		corner_radius = settings.items.corner_radius,
 	},
 	click_script = "open -a 'Calendar'",
 })

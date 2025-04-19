@@ -1,5 +1,6 @@
 local colors = require("colors")
 local icons = require("icons")
+local settings = require("settings")
 --
 -- Handles the small icon indicator for spaces / menus changes
 local spaces_indicator = sbar.add("item", {
@@ -21,6 +22,7 @@ local spaces_indicator = sbar.add("item", {
 	background = {
 		color = colors.with_alpha(colors.black, 0.0),
 		border_color = colors.with_alpha(colors.bg1, 0.0),
+		corner_radius = settings.items.corner_radius,
 	},
 })
 

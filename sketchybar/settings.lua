@@ -40,11 +40,17 @@ return {
 		colors = {
 			background = colors.bg1,
 		},
-		corner_radius = 6,
+		corner_radius = 12,
 	},
 
 	icons = "sketchybar-app-font:Regular:16.0", -- alternatively available: NerdFont
 
+	divider = {
+		character = "│",
+		color = colors.bg2,
+		padding_left = 1,
+		padding_right = 2,
+	},
 	font = {
 		text = "FiraCode Nerd Font Mono", -- Used for text
 		numbers = "FiraCode Nerd Font Mono", -- Used for numbers

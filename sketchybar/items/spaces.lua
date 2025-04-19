@@ -23,20 +23,32 @@ for i, workspace in ipairs(workspaces) do
 			font = {
 				family = settings.font.numbers,
 			},
-			string = i,
+			string = i, --.. " " .. settings.divider.character,
 			padding_left = settings.items.padding.left,
-			padding_right = settings.items.padding.left / 2,
+			padding_right = 0,
 			-- color = settings.items.default_color(i),
 			highlight_color = settings.items.default_color(i),
 			highlight = selected,
+			background = {
+				drawing = true,
+				color = colors.with_alpha(colors.black, 0.3),
+				corner_radius = settings.items.corner_radius,
+				height = settings.items.height,
+				border_width = 0,
+				border_color = colors.with_alpha(colors.black, 0.0),
+			},
 		},
 		label = {
-			padding_right = settings.items.padding.right,
-			-- color = settings.items.default_color(i),
-			highlight_color = settings.items.default_color(i),
 			font = settings.icons,
 			y_offset = -1,
+			padding_left = 8,
+			padding_right = settings.items.padding.right,
+			color = colors.fg,
+			highlight_color = settings.items.default_color(i),
 			highlight = selected,
+			background = {
+				drawing = false,
+			},
 		},
 		padding_right = 1,
 		padding_left = 1,
@@ -44,8 +56,23 @@ for i, workspace in ipairs(workspaces) do
 			color = settings.items.colors.background,
 			border_width = 1,
 			height = settings.items.height,
-			-- border_color = selected and settings.items.highlight_color(i) or settings.items.default_color(i),
+			corner_radius = settings.items.corner_radius,
+			drawing = true,
 		},
+		drawing = true,
+		associated_display = 1,
+		right_shell = {
+			drawing = true,
+			label = {
+				font = settings.icons,
+				y_offset = -1,
+				padding_left = 8,
+				padding_right = settings.items.padding.right,
+				color = colors.fg,
+			},
+		},
+
+		click_script = "aerospace workspace " .. i,
 		popup = {
 			background = {
 				border_width = 5,
@@ -55,7 +82,6 @@ for i, workspace in ipairs(workspaces) do
 	})
 
 	spaces[i] = space
-
 	-- Define the icons for open apps on each space initially
 	sbar.exec("aerospace list-windows --workspace " .. i .. " --format '%{app-name}' --json ", function(apps)
 		local icon_line = ""
@@ -74,7 +100,14 @@ for i, workspace in ipairs(workspaces) do
 
 		sbar.animate("tanh", 10, function()
 			space:set({
-				label = icon_line,
+				right_shell = {
+					drawing = true,
+					label = {
+						string = icon_line,
+						padding_left = 8,
+						padding_right = settings.items.padding.right,
+					},
+				},
 			})
 		end)
 	end)
@@ -126,7 +159,7 @@ for i, workspace in ipairs(workspaces) do
 	end)
 
 	space:subscribe("aerospace_workspace_change", function(env)
-		print(workspace, env.FOCUSED_WORKSPACE)
+		-- Only highlight the workspace if it has keyboard focus
 		if workspace == env.FOCUSED_WORKSPACE then
 			space:set({
 				icon = {
@@ -172,7 +205,9 @@ for i, workspace in ipairs(workspaces) do
 
 			sbar.animate("tanh", 10, function()
 				spaces[i]:set({
-					label = { string = icon_line },
+					label = {
+						string = icon_line,
+					},
 				})
 			end)
 		end)

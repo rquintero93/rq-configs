@@ -34,6 +34,8 @@ sbar.default({
 		corner_radius = settings.items.corner_radius,
 		border_width = 2,
 		border_color = colors.bg2,
+		padding_left = 2,
+		padding_right = 2,
 		image = {
 			corner_radius = settings.items.corner_radius,
 			border_color = colors.grey,
@@ -43,6 +45,7 @@ sbar.default({
 	popup = {
 		background = {
 			border_width = 2,
+			padding = 4,
 			corner_radius = settings.items.corner_radius,
 			border_color = colors.popup.border,
 			color = colors.popup.bg,

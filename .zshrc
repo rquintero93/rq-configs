@@ -191,11 +191,12 @@ _fzf_compgen_dir() {
 source ~/fzf-git.sh/fzf-git.sh
 
 # --- setup fzf theme ---
-fg="#CBE0F0"
-purple="#B388FF"
-blue="#06BCE4"
-cyan="#2CF9ED"
-export FZF_DEFAULT_OPTS="--color=fg:${fg},hl:${purple},fg+:${fg},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--color=border:#313244,label:#cdd6f4"
 
 # export PATH=~/anaconda3/bin:$PATH
 # yazi functionality 

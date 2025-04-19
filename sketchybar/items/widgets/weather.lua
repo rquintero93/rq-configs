@@ -145,7 +145,7 @@ local function get_icon(condition, is_day)
 end
 
 sbar.add("bracket", "widgets.weather.bracket", { weather.name }, {
-	background = { color = colors.bg1 },
+	background = { color = colors.bg1, corner_radius = settings.items.corner_radius },
 })
 
 sbar.add("item", "widgets.weather.padding", {
