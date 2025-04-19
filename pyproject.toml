@@ -2,7 +2,7 @@
 requires = [
   "setuptools>=65",
   "wheel",
-] # Use setuptools as build backend (PEP 621)
+]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -40,8 +40,8 @@ dev = [
 ]
 
 [tool.setuptools]
-package-dir = { "" = "src" } # Use src/ layout for package code
-license-files = ["LICENSE*"] # Include license file(s) in builds
+package-dir = { "" = "src" }
+license-files = ["LICENSE*"]
 
 [tool.setuptools.package-data]
 "*" = ["py.typed"]
@@ -78,7 +78,6 @@ asyncio_mode = "auto"
 
 [tool.coverage.run]
 branch = true
-# source = ["src/your_package_name"]
 omit = ["*/tests/*", "*/.venv/*"]
 
 [tool.coverage.report]
@@ -102,7 +101,7 @@ indent_unit = "space"
 tab_space_size = 4
 
 [tool.taskipy.tasks]
-help = "echo 'Available tasks: format, lint, typecheck, test, coverage, sqllint, sqlformat, docs_serve, docs_build, security, clean, check, dockerbuild, app, run'"
+help = "echo 'Available tasks: format, lint, typecheck, test, coverage, sqllint, sqlformat, docs_serve, docs_build, security, clean, check, dockerbuild'"
 # Run tests with check for the presence of test files
 test = "test -d tests && uv run pytest || echo 'No tests found, skipping...'"
 coverage = "uv run coverage run -m pytest && uv run coverage report -m"
@@ -110,10 +109,6 @@ coverage = "uv run coverage run -m pytest && uv run coverage report -m"
 typecheck = "uv run basedpyright"
 # Clean build artifacts
 clean = "rm -rf __pycache__ .pytest_cache .mypy_cache dist build *.egg-info"
-# Run Streamlit app with check for app file
-app = "test -f src/app.py && streamlit run src/app.py || echo 'No Streamlit app found, skipping...'"
-# Run main 
-run = "python3 src/main.py"
 # Python Lint only
 lint = "uv run ruff check ."
 # Format & autofix everything Ruff can
