@@ -51,11 +51,25 @@ where = ["src"]
 
 [tool.basedpyright]
 ignore = ['*']
-typeCheckingMode = "standard"
-reportMissingImports = "error"
-reportMissingTypeStubs = "information"
-reportArgumentType = "information"
-reportCallIssue = "information"
+# typeCheckingMode = "standard"
+# reportMissingImports = "error"
+# reportMissingTypeStubs = "information"
+# reportArgumentType = "information"
+# reportCallIssue = "information"
+
+[tool.mypy]
+python_version = "3.12"
+files = "src"
+strict = true
+show_error_codes = true
+warn_unreachable = true
+enable_error_code = [
+    "redundant-expr",
+    "truthy-bool"
+]
+[[tool.mypy.overrides]]
+module = ["numpy.*"]
+ignore_missing_imports = true
 
 [tool.ruff]
 fix = true
@@ -106,7 +120,7 @@ help = "echo 'Available tasks: format, lint, typecheck, test, coverage, sqllint,
 test = "test -d tests && uv run pytest || echo 'No tests found, skipping...'"
 coverage = "uv run coverage run -m pytest && uv run coverage report -m"
 # Static type checking
-typecheck = "uv run basedpyright"
+typecheck = "uv run mypy src"
 # Clean build artifacts
 clean = "rm -rf __pycache__ .pytest_cache .mypy_cache dist build *.egg-info"
 # Python Lint only
