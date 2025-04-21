@@ -1,8 +1,5 @@
 [build-system]
-requires = [
-  "setuptools>=65",
-  "wheel",
-]
+requires = ["setuptools>=65", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -37,6 +34,7 @@ dev = [
   "mkdocs-material",
   "mkdocstrings[python]",
   "mkdocs-git-revision-date-localized-plugin",
+  "mypy>=1.5.0",
 ]
 
 [tool.setuptools]
@@ -63,10 +61,7 @@ files = "src"
 strict = true
 show_error_codes = true
 warn_unreachable = true
-enable_error_code = [
-    "redundant-expr",
-    "truthy-bool"
-]
+enable_error_code = ["redundant-expr", "truthy-bool"]
 [[tool.mypy.overrides]]
 module = ["numpy.*"]
 ignore_missing_imports = true

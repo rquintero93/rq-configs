@@ -6,10 +6,10 @@ $os\
 $username\
 [](bg:blue fg:surface0)\
 $directory\
-[](fg:blue bg:orange)\
+[](fg:blue bg:green)\
 $git_branch\
 $git_status\
-[ ](fg:orange)\
+[ ](fg:green)\
 $line_break$character"""
 
 palette = 'catppuccin_mocha'
@@ -30,7 +30,7 @@ color_yellow = '#d79921'
 rosewater = "#f5e0dc"
 flamingo = "#f2cdcd"
 pink = "#f5c2e7"
-orange = "#cba6f7"
+mauve = "#cba6f7"
 red = "#f38ba8"
 maroon = "#eba0ac"
 peach = "#fab387"
@@ -100,12 +100,12 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:orange"
-format = '[[ $symbol $branch ](fg:base bg:orange)]($style)'
+style = "bg:green"
+format = '[[ $symbol $branch ](fg:base bg:green)]($style)'
 
 [git_status]
-style = "bg:orange"
-format = '[[($all_status$ahead_behind )](fg:base bg:orange)]($style)'
+style = "bg:green"
+format = '[[($all_status$ahead_behind )](fg:base bg:green)]($style)'
 
 [nodejs]
 symbol = ""
