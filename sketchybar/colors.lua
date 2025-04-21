@@ -23,9 +23,9 @@ return {
 
 	rainbow = {
 		0xff7f8490, -- Maroon
-		0xffb4befe, -- Lavender
-		0xff89b4fa, -- Blue
 		0xffa6e3a1, -- Green
+		0xff89b4fa, -- Blue
+		0xffb4befe, -- Lavender
 		0xffcba6f7, -- Mauve
 		0xff74c7ec, -- Sapphire
 		0xff89dceb, -- Sky
