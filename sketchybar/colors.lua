@@ -7,7 +7,7 @@ return {
 	yellow = 0xFFF9E2AF,
 	orange = 0xFFFAB387,
 	magenta = 0xFFCBA6F7,
-	grey = 0xFF7F849C,
+	grey = 0xFF313243,
 	transparent = 0x00000000,
 
 	bar = {
@@ -18,8 +18,8 @@ return {
 		bg = 0xFF45475A,
 		border = 0xFFCDD6F4,
 	},
-	bg1 = 0xFF313244,
-	bg2 = 0xFF313244,
+	bg1 = 0xFF313243,
+	bg2 = 0xFF313243,
 
 	rainbow = {
 		0xff7f8490, -- Maroon
