@@ -60,7 +60,7 @@ line-length = 88
 exclude = ["*/.venv"]
 
 [tool.ruff.lint]
-select = ["B", "E", "F", "I", "Q", "S", "NPY", "PD", "W", "RUF"]
+select = ["B", "E", "F", "I", "Q", "S", "NPY", "PD", "W", "RUF", "AIR","FAST", "ASYNC"]
 ignore = ["S101", "S301", "PD901", "RUF013", "B018"]
 
 [tool.ruff.lint.pydocstyle]
