@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=65", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "template"
@@ -37,23 +37,11 @@ dev = [
   "mypy>=1.5.0",
 ]
 
-[tool.setuptools]
-package-dir = { "" = "src" }
-license-files = ["LICENSE*"]
-
-[tool.setuptools.package-data]
-"*" = ["py.typed"]
-
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
 
 [tool.basedpyright]
 ignore = ['*']
-# typeCheckingMode = "standard"
-# reportMissingImports = "error"
-# reportMissingTypeStubs = "information"
-# reportArgumentType = "information"
-# reportCallIssue = "information"
 
 [tool.mypy]
 python_version = "3.12"
