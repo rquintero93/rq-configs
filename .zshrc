@@ -1,13 +1,22 @@
+# zmodload zsh/zprof # Uncomment to profile zsh startup
+# Load zsh-defer
+source "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-defer/zsh-defer.plugin.zsh"
+
 # Antidote plugin manager
-source ~/.antidote/antidote.zsh
-antidote load ~/.zsh_plugins.txt
+zsh-defer -t 0.5 source ~/.antidote/antidote.zsh
+zsh-defer -t 0.5 antidote load ~/.zsh_plugins.txt
 
 # Prompt
-eval "$(starship init zsh)"
+zsh-defer eval "$(starship init zsh)"
 
+if [[ ! -f ~/.starship.cache || ! -s ~/.starship.cache || $(( $(date +%s) - $(stat -f %m ~/.starship.cache) )) -gt 86400 ]]; then
+ starship init zsh > ~/.starship.cache
+fi
+source ~/.starship.cache
+#
 # ENV
-source "$HOME/config-repo/.env"
-. "$HOME/.local/bin/env"
+zsh-defer source "$HOME/config-repo/.env"
+zsh-defer . "$HOME/.local/bin/env"
 
 # Editor
 export EDITOR="nvim"
@@ -114,11 +123,22 @@ function e() {
 	rm -f -- "$tmp"
 }
 
-# # Lazy init
-eval "$(thefuck --alias)"
-eval "$(zoxide init zsh)"
-eval "$(tmuxifier init -)"
-eval "$(fzf --zsh)"
+# Lazier init with longer timeouts
+zsh-defer -t 1 eval "$(thefuck --alias)"
+zsh-defer -t 0.5 eval "$(zoxide init zsh)"
+zsh-defer -t 0.5 eval "$(tmuxifier init -)"
+zsh-defer -t 0.5 eval "$(fzf --zsh)"
 
 # Visual feedback for completions
 COMPLETION_WAITING_DOTS="true"
+
+
+# Cache completions
+# autoload -Uz compinit
+# if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+#   compinit
+# else
+#   compinit -C
+# fi
+
+# zprof # Uncomment to profile zsh startup
