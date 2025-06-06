@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:/usr/local/bin
+# export PATH=$PATH:/usr/local/bin
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -102,7 +102,7 @@ source "$HOME/config-repo/.env"
 # Example aliases
 #justin case
 # export VIRTUAL_ENV="$HOME/Documents/Global Alumni/.venv:$PATH"
-export PATH="/usr/local/opt/:$PATH"
+# export PATH="/usr/local/opt/:$PATH"
 alias zshconfig="nvim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -124,7 +124,8 @@ alias lg='lazygit'
 alias lzd='lazydocker'
 alias nerd='cd ~/Documents/DeSciWorld/nerdBot/'
 alias airbyte='ssh -L 8000:localhost:8000 airbyte'
-export PATH="/usr/local/sbin:$PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)" 
+# export PATH="/usr/local/sbin:$PATH"
 export EDITOR="nvim"
 alias db-soa-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-soa san-postgre-2-instance-1-eu-west-1c.cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
 alias db-soa-tunneler-writer='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-soa san-postgre-2.cluster-cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
@@ -164,6 +165,7 @@ bindkey -M emacs '\es' sesh-sessions
 bindkey -M vicmd '\es' sesh-sessions
 bindkey -M viins '\es' sesh-sessions
 
+eval "$(rbenv init -)"
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
