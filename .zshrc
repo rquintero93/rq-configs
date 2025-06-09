@@ -24,25 +24,25 @@ export EDITOR="nvim"
 # Aliases
 alias zshconfig="nvim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
-alias nerdssh="ssh -i ~/.ssh/pems/RicardoSSH.pem ubuntu@15.237.174.231"
-alias sysupdate="brew update && brew upgrade && brew cleanup && antidote update && uv self update"
-alias pyinit='bash ~/config-repo/pyinit.sh'
-alias rq='sesh connect .'
 alias ls='eza --icons --group-directories-first'
 alias la='ls -la'
 alias cat='bat'
 alias cd='z'
-alias tkill='tmux kill-server'
+alias sysupdate="brew update && brew upgrade && brew cleanup && antidote update && uv self update"
+alias pyinit='bash ~/config-repo/pyinit.sh'
 alias syncrc='cd ~/config-repo && git add . && git commit -m "update conf files" && git push'
 alias ndir='cd ~/.config/nvim/'
 alias cdir='cd ~/config-repo/'
 alias ga='cd ~/Documents/Global\ Alumni/'
+alias nerd='cd ~/Documents/DeSciWorld/nerdBot/'
+alias tkill='tmux kill-server'
+alias rq='sesh connect .'
 alias config='sesh connect config'
 alias db='sesh connect db'
 alias lg='lazygit'
 alias lzd='lazydocker'
-alias nerd='cd ~/Documents/DeSciWorld/nerdBot/'
 alias airbyte='ssh -L 8000:localhost:8000 airbyte'
+alias nerdssh="ssh -i ~/.ssh/pems/RicardoSSH.pem ubuntu@15.237.174.231"
 alias switch-nvim="/usr/local/bin/switch_nvim_config.sh"
 function jupyconv() { jupytext --to py:percent "$1"; }
 
@@ -129,20 +129,11 @@ function e() {
 zsh-defer -t 1 eval "$(thefuck --alias)"
 zsh-defer -t 0.5 eval "$(zoxide init zsh)"
 zsh-defer -t 0.5 eval "$(tmuxifier init -)"
-# zsh-defer -t 0.5 eval "$(fzf --zsh)"
 
 # Visual feedback for completions
 COMPLETION_WAITING_DOTS="true"
 
 autoload -Uz compinit
 zsh-defer -t 0.6 compinit
-
-# Cache completions
-# autoload -Uz compinit
-# if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-#   compinit
-# else
-#   compinit -C
-# fi
 
 # zprof # Uncomment to profile zsh startup
