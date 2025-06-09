@@ -9,7 +9,7 @@ description = "Add your description here"
 authors = [{ name = "Ricardo Quintero", email = "rquinterog93@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.12"
-license = { file = "LICENSE" }
+license = { text = "MIT" }
 
 [dependency-groups]
 dev = [

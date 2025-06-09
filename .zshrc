@@ -13,7 +13,7 @@ if [[ ! -f ~/.starship.cache || ! -s ~/.starship.cache || $(( $(date +%s) - $(st
  starship init zsh > ~/.starship.cache
 fi
 source ~/.starship.cache
-#
+
 # ENV
 zsh-defer source "$HOME/config-repo/.env"
 zsh-defer . "$HOME/.local/bin/env"
@@ -29,6 +29,7 @@ alias sysupdate="brew update && brew upgrade && brew cleanup && antidote update"
 alias pyinit='bash ~/config-repo/pyinit.sh'
 alias rq='sesh connect .'
 alias ls='eza --icons --group-directories-first'
+alias la='ls -la'
 alias cat='bat'
 alias cd='z'
 alias tkill='tmux kill-server'
@@ -43,6 +44,7 @@ alias lzd='lazydocker'
 alias nerd='cd ~/Documents/DeSciWorld/nerdBot/'
 alias airbyte='ssh -L 8000:localhost:8000 airbyte'
 alias switch-nvim="/usr/local/bin/switch_nvim_config.sh"
+function jupyconv() { jupytext --to py:percent "$1"; }
 
 # PATHs
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -50,18 +52,12 @@ export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 fpath=(/Users/ricardoquintero/.docker/completions $fpath)
-#
+
 # DB Tunnel Aliases
 alias db-soa-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-soa san-postgre-2-instance-1-eu-west-1c.cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
 alias db-soa-tunneler-writer='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-soa san-postgre-2.cluster-cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
 alias db-sx-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-santander-x campus-santander-x-instance-1-eu-west-1a.cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
 alias db-santander-ucpe-tunneler='source ~/scripts/ssm-db-tunneler.sh old_ga eu-west-1 Campus_Santander_UCPE localhost 5432 5432'
-
-# # Defer heavy plugin loads
-# zsh-defer source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# zsh-defer source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# zsh-defer source /usr/local/share/zsh-autopair/autopair.zsh
-
 
 # sesh fuzzy selector
 function sesh-sessions() {
@@ -103,6 +99,12 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475a \
 --color=border:#313244,label:#cdd6f4"
 
+zstyle ':completion:*' menu select
+zstyle ':fzf-tab:*' fzf-command fzf-tmux -p 80%,60%
+zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':fzf-tab:complete:*' fzf-preview 'ls -alF --color=always $realpath'
+zstyle ':fzf-tab:complete:*' fzf-preview '[[ -f $realpath ]] && bat --style=default --color=always $realpath || ls -alF --color=always $realpath'
+
 source ~/fzf-git.sh/fzf-git.sh
 
 # Full fzf shell integration (keybindings + completion)
@@ -127,11 +129,13 @@ function e() {
 zsh-defer -t 1 eval "$(thefuck --alias)"
 zsh-defer -t 0.5 eval "$(zoxide init zsh)"
 zsh-defer -t 0.5 eval "$(tmuxifier init -)"
-zsh-defer -t 0.5 eval "$(fzf --zsh)"
+# zsh-defer -t 0.5 eval "$(fzf --zsh)"
 
 # Visual feedback for completions
 COMPLETION_WAITING_DOTS="true"
 
+autoload -Uz compinit
+zsh-defer -t 0.6 compinit
 
 # Cache completions
 # autoload -Uz compinit
