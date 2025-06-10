@@ -3,16 +3,11 @@
 source "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-defer/zsh-defer.plugin.zsh"
 
 # Antidote plugin manager
-zsh-defer -t 0.5 source ~/.antidote/antidote.zsh
-zsh-defer -t 0.5 antidote load ~/.zsh_plugins.txt
+source ~/.antidote/antidote.zsh
+antidote load ~/.zsh_plugins.txt
 
 # Prompt
-zsh-defer eval "$(starship init zsh)"
-
-if [[ ! -f ~/.starship.cache || ! -s ~/.starship.cache || $(( $(date +%s) - $(stat -f %m ~/.starship.cache) )) -gt 86400 ]]; then
- starship init zsh > ~/.starship.cache
-fi
-source ~/.starship.cache
+eval "$(starship init zsh)"
 
 # ENV
 zsh-defer source "$HOME/config-repo/.env"
@@ -20,6 +15,17 @@ zsh-defer . "$HOME/.local/bin/env"
 
 # Editor
 export EDITOR="nvim"
+
+# PATHs
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+fpath=(/Users/ricardoquintero/.docker/completions $fpath)
+
+# Lazier init with longer timeouts
+eval "$(zoxide init zsh)"
+zsh-defer -t 0.5 eval "$(tmuxifier init -)"
 
 # Aliases
 alias zshconfig="nvim ~/.zshrc"
@@ -45,13 +51,6 @@ alias airbyte='ssh -L 8000:localhost:8000 airbyte'
 alias nerdssh="ssh -i ~/.ssh/pems/RicardoSSH.pem ubuntu@15.237.174.231"
 alias switch-nvim="/usr/local/bin/switch_nvim_config.sh"
 function jupyconv() { jupytext --to py:percent "$1"; }
-
-# PATHs
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
-fpath=(/Users/ricardoquintero/.docker/completions $fpath)
 
 # DB Tunnel Aliases
 alias db-soa-tunneler='source ~/scripts/ssm-db-tunneler.sh santander eu-west-1 campus-soa san-postgre-2-instance-1-eu-west-1c.cg5xawbcvl2m.eu-west-1.rds.amazonaws.com 5432 5432'
@@ -104,6 +103,22 @@ zstyle ':fzf-tab:*' fzf-command fzf-tmux -p 80%,60%
 zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':fzf-tab:complete:*' fzf-preview 'ls -alF --color=always $realpath'
 zstyle ':fzf-tab:complete:*' fzf-preview '[[ -f $realpath ]] && bat --style=default --color=always $realpath || ls -alF --color=always $realpath'
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# custom fzf flags
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+# To make fzf-tab follow FZF_DEFAULT_OPTS.
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
 
 source ~/fzf-git.sh/fzf-git.sh
 
@@ -125,15 +140,10 @@ function e() {
 	rm -f -- "$tmp"
 }
 
-# Lazier init with longer timeouts
-zsh-defer -t 1 eval "$(thefuck --alias)"
-zsh-defer -t 0.5 eval "$(zoxide init zsh)"
-zsh-defer -t 0.5 eval "$(tmuxifier init -)"
-
 # Visual feedback for completions
 COMPLETION_WAITING_DOTS="true"
 
 autoload -Uz compinit
-zsh-defer -t 0.6 compinit
+zsh-defer -t 0.5 compinit
 
 # zprof # Uncomment to profile zsh startup
