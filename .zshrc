@@ -10,9 +10,10 @@ antidote load ~/.zsh_plugins.txt
 eval "$(starship init zsh)"
 
 # ENV
-zsh-defer source "$HOME/config-repo/.env"
-zsh-defer . "$HOME/.local/bin/env"
-
+source "$HOME/config-repo/.env"
+. "$HOME/.local/bin/env"
+. "$HOME/.atuin/bin/env"
+#
 # Editor
 export EDITOR="nvim"
 
@@ -147,8 +148,6 @@ COMPLETION_WAITING_DOTS="true"
 autoload -Uz compinit
 zsh-defer -t 0.5 compinit
 
+eval "$(atuin init zsh --disable-up-arrow)"
+
 # zprof # Uncomment to profile zsh startup
-
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"
