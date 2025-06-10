@@ -20,6 +20,7 @@ export EDITOR="nvim"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.atuin/bin:$PATH"
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 fpath=(/Users/ricardoquintero/.docker/completions $fpath)
 
@@ -82,14 +83,14 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 _fzf_compgen_path() { fd --hidden --exclude .git . "$1" }
 _fzf_compgen_dir() { fd --type=d --hidden --exclude .git . "$1" }
 # FZF CTRL-R: Fancy layout with syntax-highlighted preview
-export FZF_CTRL_R_OPTS="
-  --height 60%
-  --reverse
-  --preview 'echo {} | sed \"s/^ *//\" | bat --style=plain --language=bash --paging=never --color=always'
-  --preview-window=up:3:wrap
-  --bind 'ctrl-y:execute-silent(echo {} | pbcopy)+abort'
-  --border
-  --color=border:#444444"
+# export FZF_CTRL_R_OPTS="
+#   --height 60%
+#   --reverse
+#   --preview 'echo {} | sed \"s/^ *//\" | bat --style=plain --language=bash --paging=never --color=always'
+#   --preview-window=up:3:wrap
+#   --bind 'ctrl-y:execute-silent(echo {} | pbcopy)+abort'
+#   --border
+#   --color=border:#444444"
 # fzf theme
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:-1,spinner:#f5e0dc,hl:#f38ba8 \
@@ -147,3 +148,7 @@ autoload -Uz compinit
 zsh-defer -t 0.5 compinit
 
 # zprof # Uncomment to profile zsh startup
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
